@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 import 'dart:ui';
 
@@ -74,19 +75,24 @@ class Utils {
 
   //记录错误日志并写入文件
   static logRecord(FlutterErrorDetails error) async {
-    try {
-      final dir = await getApplicationDocumentsDirectory();
-      final logDir = Directory('${dir.path}/error_logs');
-      if (!await logDir.exists()) await logDir.create(recursive: true);
-      final date = DateTime.now().toIso8601String().split('T').first;
-      final file = File('${logDir.path}/error_$date.txt');
-      final log = StringBuffer()
-        ..writeln("[${DateTime.now()}] ERROR:")
-        ..writeln(error);
-      await file.writeAsString(log.toString(), mode: FileMode.append, flush: true);
-    } catch (e) {
-      // 防止写日志也报错，避免死循环
-      if (kDebugMode) print("Failed to write error log: $e");
+    if(!kDebugMode) {
+      try {
+        final dir = await getApplicationDocumentsDirectory();
+        final logDir = Directory('${dir.path}/error_logs');
+        if (!await logDir.exists()) await logDir.create(recursive: true);
+        final date = DateTime
+            .now()
+            .toIso8601String()
+            .split('T')
+            .first;
+        final file = File('${logDir.path}/error_$date.txt');
+        final log = StringBuffer()
+          ..writeln("[${DateTime.now()}] ERROR:")..writeln(error);
+        await file.writeAsString(log.toString(), mode: FileMode.append, flush: true);
+      } catch (e) {
+        // 防止写日志也报错，避免死循环
+        if (kDebugMode) print("Failed to write error log: $e");
+      }
     }
   }
 }
