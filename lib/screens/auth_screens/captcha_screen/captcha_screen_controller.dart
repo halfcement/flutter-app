@@ -1,8 +1,8 @@
 import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_app_template/apis/auth_apis.dart';
-import 'package:flutter_app_template/models/captcha_model.dart';
+import 'package:normal_template/apis/auth_apis.dart';
+import 'package:normal_template/models/captcha_model.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 

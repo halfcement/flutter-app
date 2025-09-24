@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_app_template/screens/launch_screen/launch_screen.dart';
+import 'package:normal_template/screens/launch_screen/launch_screen.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 

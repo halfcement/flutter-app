@@ -1,23 +1,20 @@
 import 'dart:async';
-import 'dart:convert';
 import 'dart:developer';
-import 'dart:ui';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_app_template/apis/api_response.dart';
-import 'package:flutter_app_template/models/global_static_variable.dart';
-import 'package:flutter_app_template/models/token.dart';
-import 'package:flutter_app_template/utils/utils.dart';
-import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:localstorage/localstorage.dart';
+import 'package:normal_template/apis/api_response.dart';
+import 'package:normal_template/models/global_static_variable.dart';
+import 'package:normal_template/models/token.dart';
+import 'package:normal_template/utils/utils.dart';
 import 'package:pool/pool.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:synchronized/synchronized.dart';
 
 import '../../apis/api_path.dart';
-import 'cache_interceptor.dart';
-import 'http_method.dart';
 import 'get_body_interceptor.dart';
+import 'http_method.dart';
 
 //dio请求池
 class DioPoolManager {

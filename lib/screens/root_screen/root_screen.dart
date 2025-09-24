@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_template/screens/root_screen/root_screen_controller.dart';
+import 'package:normal_template/screens/root_screen/root_screen_controller.dart';
 import 'package:get/get.dart';
 
 // 根 页

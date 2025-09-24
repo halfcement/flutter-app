@@ -1,18 +1,15 @@
-import 'dart:developer';
-import 'dart:io';
 import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_template/config/translations.dart';
-import 'package:flutter_app_template/models/global_static_variable.dart';
-import 'package:flutter_app_template/screens/auth_screens/login_screen/login_screen.dart';
-import 'package:flutter_app_template/screens/root_screen/root_screen_controller.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 import 'package:localstorage/localstorage.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:normal_template/config/translations.dart';
+import 'package:normal_template/models/global_static_variable.dart';
+import 'package:normal_template/screens/auth_screens/login_screen/login_screen.dart';
+import 'package:normal_template/screens/root_screen/root_screen_controller.dart';
 
 import 'common_controller/user_controller.dart';
 import 'screens/root_screen/root_screen.dart';

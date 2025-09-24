@@ -1,9 +1,9 @@
 import 'dart:io';
 
-import 'package:flutter_app_template/apis/api_path.dart';
-import 'package:flutter_app_template/apis/api_response.dart';
-import 'package:flutter_app_template/config/dio_config/dio_pool_manager.dart';
-import 'package:flutter_app_template/config/dio_config/http_method.dart';
+import 'package:normal_template/apis/api_path.dart';
+import 'package:normal_template/apis/api_response.dart';
+import 'package:normal_template/config/dio_config/dio_pool_manager.dart';
+import 'package:normal_template/config/dio_config/http_method.dart';
 import 'package:localstorage/localstorage.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 

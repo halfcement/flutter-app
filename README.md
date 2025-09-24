@@ -16,3 +16,9 @@ flutter通用项目基础模板代码
 ### api接口管理 地址管理
 ## 注意事项:
 android和ios需要更新自己的applicationId和bundleId
+### 一键切换:
+```dart run change_app_package_name:main com.new.package.name```
+### 只切换android平台的
+```dart run change_app_package_name:main com.new.package.name --android```
+### 只切换ios平台的
+```dart run change_app_package_name:main com.new.package.name --ios```

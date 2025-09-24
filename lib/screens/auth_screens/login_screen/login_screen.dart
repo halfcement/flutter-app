@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_template/common_controller/user_controller.dart';
-import 'package:flutter_app_template/models/user_info.dart';
+import 'package:normal_template/common_controller/user_controller.dart';
+import 'package:normal_template/models/user_info.dart';
 import 'package:get/get.dart';
 
 import 'login_screen_controller.dart';

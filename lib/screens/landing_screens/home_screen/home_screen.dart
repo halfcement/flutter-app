@@ -3,11 +3,11 @@ import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_template/models/global_static_variable.dart';
-import 'package:flutter_app_template/screens/auth_screens/captcha_screen/captcha_screen.dart';
-import 'package:flutter_app_template/screens/auth_screens/captcha_screen/captcha_screen_controller.dart';
-import 'package:flutter_app_template/screens/root_screen/root_screen_controller.dart';
-import 'package:flutter_app_template/utils/utils.dart';
+import 'package:normal_template/models/global_static_variable.dart';
+import 'package:normal_template/screens/auth_screens/captcha_screen/captcha_screen.dart';
+import 'package:normal_template/screens/auth_screens/captcha_screen/captcha_screen_controller.dart';
+import 'package:normal_template/screens/root_screen/root_screen_controller.dart';
+import 'package:normal_template/utils/utils.dart';
 import 'package:get/get.dart';
 import 'package:localstorage/localstorage.dart';
 
