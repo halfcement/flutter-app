@@ -39,6 +39,21 @@ class Utils {
     }
   }
 
+  //刷新token
+  static Future<String> refreshToken() async {
+    var token = Token.fromJson(localStorage.getItem(authorToken));
+    var dio = Dio();
+    var resp = await dio.request(
+      ApiPath.refreshTokenPath,
+      data: {"refreshToken": token.refreshToken},
+      options: Options(method: HttpMethod.POST),
+    );
+    Token tokenResult = Token.fromJson(resp.data);
+    //更新到缓存中
+    localStorage.setItem(authorToken, jsonEncode(tokenResult.toJson()));
+    return tokenResult.authorToken ?? '';
+  }
+
   //获取本机uuid
   static Future<void> getUuid() async {
     DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
@@ -55,31 +70,6 @@ class Utils {
   static Future<void> getAppId() async {
     PackageInfo packageInfo = await PackageInfo.fromPlatform();
     localStorage.setItem(appId, packageInfo.packageName);
-  }
-
-  ///dp 转 px（逻辑像素 -> 物理像素）
-  static double toPx(BuildContext context, double dp) {
-    return dp * MediaQuery.of(context).devicePixelRatio;
-  }
-
-  // px 转 dp（物理像素 -> 逻辑像素 ）
-  static double toDp(BuildContext context, double px) {
-    return px / MediaQuery.of(context).devicePixelRatio;
-  }
-
-  //刷新token
-  static Future<String> refreshToken() async {
-    var token = Token.fromJson(localStorage.getItem(authorToken));
-    var dio = Dio();
-    var resp = await dio.request(
-      ApiPath.refreshTokenPath,
-      data: {"refreshToken": token.refreshToken},
-      options: Options(method: HttpMethod.POST),
-    );
-    Token tokenResult = Token.fromJson(resp.data);
-    //更新到缓存中
-    localStorage.setItem(authorToken, jsonEncode(tokenResult.toJson()));
-    return tokenResult.authorToken ?? '';
   }
 
   //记录错误日志并写入文件
