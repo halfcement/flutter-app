@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:get/get.dart';
-import 'package:localstorage/localstorage.dart';
 
 import '../models/user_info.dart';
 //创建全局用户controller

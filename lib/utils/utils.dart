@@ -1,15 +1,12 @@
 import 'dart:convert';
-import 'dart:developer';
 import 'dart:io';
-import 'dart:ui';
 
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:localstorage/localstorage.dart';
 import 'package:normal_template/apis/api_path.dart';
 import 'package:normal_template/config/dio_config/http_method.dart';
-import 'package:localstorage/localstorage.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:path_provider/path_provider.dart';
 

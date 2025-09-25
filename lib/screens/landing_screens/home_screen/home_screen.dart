@@ -1,15 +1,10 @@
-import 'dart:convert';
-import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:normal_template/models/global_static_variable.dart';
-import 'package:normal_template/screens/auth_screens/captcha_screen/captcha_screen.dart';
-import 'package:normal_template/screens/auth_screens/captcha_screen/captcha_screen_controller.dart';
+import 'package:gocaptcha/slide_captcha.dart';
+import 'package:normal_template/apis/auth_apis.dart';
 import 'package:normal_template/screens/root_screen/root_screen_controller.dart';
-import 'package:normal_template/utils/utils.dart';
 import 'package:get/get.dart';
-import 'package:localstorage/localstorage.dart';
 
 //首页
 class HomeScreen extends StatefulWidget {
@@ -32,13 +27,18 @@ class _HomeScreenState extends State<HomeScreen> {
             Text("HOME SCREEN${rootScreenController.currentPageIndex}"),
             GestureDetector(
               onTap: () async {
-                showCupertinoDialog(context: context, barrierDismissible: true, builder: (_) => CaptchaScreen()).then((
-                  _,
-                ) {
-                  Get.delete<CaptchaScreenController>();
-                });
+                  showCupertinoDialog(
+                    context: context,
+                    builder: (_) => SlideCaptcha(
+                      getCaptcha: AuthApi.getCaptcha,
+                      checkCaptcha: AuthApi.checkCaptcha,
+                      onSuccess: () async {
+                        Get.back();
+                      },
+                    ),
+                  );
               },
-              child: Text("TEST UUID"),
+              child: Text("TEST Captcha"),
             ),
           ],
         ),

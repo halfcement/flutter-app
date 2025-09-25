@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:normal_template/common_controller/user_controller.dart';
 import 'package:normal_template/models/user_info.dart';
-import 'package:get/get.dart';
-
-import 'login_screen_controller.dart';
 
 // 登录页面
 class LoginScreen extends StatelessWidget {
@@ -11,7 +9,6 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final state = Get.put(LoginScreenController());
     return Scaffold(
       appBar: AppBar(title: Text('登录')),
       body: Center(
