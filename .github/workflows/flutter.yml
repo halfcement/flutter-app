@@ -28,7 +28,7 @@ jobs:
       # 更新依赖
       - run: flutter pub get
       # 打包
-      - run: flutter build apk --release
+      - run: flutter build apk --release --target-platform android-arm64,android-arm --split-per-abi
       - name: Create a release apk
         uses: ncipollo/release-action@v1
         with:
