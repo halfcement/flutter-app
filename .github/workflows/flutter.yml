@@ -22,7 +22,7 @@ jobs:
         with:
           java-version: '17.x'
       # 缓存Flutter SDK
-      - name: Prepare Flutter pub-cache
+      - name: Prepare Flutter SDK
         run: mkdir -p ~/.flutter
       - name: Cache Flutter SDK
         uses: actions/cache@v3
@@ -68,4 +68,4 @@ jobs:
         with:
           artifacts: "build/app/outputs/flutter-apk/*.apk"
           token: ${{secrets.TOKEN}}
-          tag: "v${{env.GITHUB_ENV}}-build${{github.run_number}}"
+          tag: "v${{env.APP_VERSION}}-build${{github.run_number}}"
