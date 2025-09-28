@@ -21,11 +21,23 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: '17.x'
-      # 配置Flutter环境
-      - uses: subosito/flutter-action@v1
+      # 缓存Flutter SDK
+      - name: Prepare Flutter pub-cache
+        run: mkdir -p ~/.flutter
+      - name: Cache Flutter SDK
+        uses: actions/cache@v3
         with:
+          path: ~/.flutter
+          key: ${{ runner.os }}-flutter-3.35.4
+      # 配置flutter
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
           flutter-version: '3.35.4'
+          cache: true
       # 缓存flutter pub 依赖
+      - name: Prepare Flutter pub-cache
+        run: mkdir -p ~/.pub-cache
       - name: Cache Flutter dependencies
         uses: actions/cache@v3
         with:
@@ -33,6 +45,8 @@ jobs:
             ~/.pub-cache
           key: ${{ runner.os }}-${{ hashFiles('**/pubspec.yaml') }}
       # 缓存gradle
+      - name: Prepare Gradle cache
+        run: mkdir -p ~/.gradle/caches ~/.gradle/wrapper/
       - name: Cache Gradle
         uses: actions/cache@v3
         with:
@@ -55,25 +69,3 @@ jobs:
           artifacts: "build/app/outputs/flutter-apk/*.apk"
           token: ${{secrets.TOKEN}}
           tag: "v${{env.GITHUB_ENV}}-build${{github.run_number}}"
-      # Note: This workflow uses the latest stable version of the Dart SDK.
-      # You can specify other versions if desired, see documentation here:
-      # https://github.com/dart-lang/setup-dart/blob/main/README.md
-      # - uses: dart-lang/setup-dart@v1
-      #- uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
-
-      #- name: Install dependencies
-      #  run: dart pub get
-
-      # Uncomment this step to verify the use of 'dart format' on each commit.
-      # - name: Verify formatting
-      #   run: dart format --output=none --set-exit-if-changed .
-
-      # Consider passing '--fatal-infos' for slightly stricter analysis.
-      #- name: Analyze project source
-      #  run: dart analyze
-
-      # Your project will need to have tests in test/ and a dependency on
-      # package:test for this step to succeed. Note that Flutter projects will
-      # want to change this to 'flutter test'.
-      #- name: Run tests
-      #  run: dart test
