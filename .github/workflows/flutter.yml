@@ -21,29 +21,12 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: '17.x'
-      # 缓存Flutter SDK
-      - name: Prepare Flutter SDK
-        run: mkdir -p ~/.flutter
-      - name: Cache Flutter SDK
-        uses: actions/cache@v3
-        with:
-          path: ~/.flutter
-          key: ${{ runner.os }}-flutter-3.35.4
       # 配置flutter
       - uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
           flutter-version: '3.35.4'
           cache: true
-      # 缓存flutter pub 依赖
-      - name: Prepare Flutter pub-cache
-        run: mkdir -p ~/.pub-cache
-      - name: Cache Flutter dependencies
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.pub-cache
-          key: ${{ runner.os }}-${{ hashFiles('**/pubspec.yaml') }}
       # 缓存gradle
       - name: Prepare Gradle cache
         run: mkdir -p ~/.gradle/caches ~/.gradle/wrapper/
