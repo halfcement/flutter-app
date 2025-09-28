@@ -33,7 +33,7 @@ jobs:
       - name: Create a release apk
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "build/app/outputs/flutter-apk/app-release.apk"
+          artifacts: "build/app/outputs/flutter-apk/*.apk"
           token: ${{secrets.TOKEN}}
           tag: "build-${{ github.run_number }}-${{ github.sha }}"
       # Note: This workflow uses the latest stable version of the Dart SDK.
