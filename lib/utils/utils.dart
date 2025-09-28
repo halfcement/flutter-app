@@ -92,4 +92,8 @@ class Utils {
       }
     }
   }
+  //获取包信息
+  static Future<PackageInfo> getPackageInfo()async{
+    return  await PackageInfo.fromPlatform();
+  }
 }
