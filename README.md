@@ -45,3 +45,5 @@ android和ios需要更新自己的applicationId和bundleId
 ```dart run change_app_package_name:main com.new.package.name --android```
 ### 只切换ios平台的
 ```dart run change_app_package_name:main com.new.package.name --ios```
+### 切分平台
+```flutter build apk --target-platform android-arm64,android-arm --split-per-abi```
