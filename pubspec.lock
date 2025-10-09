@@ -273,10 +273,10 @@ packages:
     dependency: "direct main"
     description:
       name: gocaptcha
-      sha256: "43e62f7db22b44ad8a8bb29a5139fa159c79a171a32f291d657fb2833b80ecee"
+      sha256: "22b0968e19bdcefb0fd31abf7f5b06d9e8760b1141372c2b92fe0727e9414c5c"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.0.1+3"
+    version: "0.0.1+7"
   html:
     dependency: transitive
     description:
@@ -317,6 +317,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.20.2"
+  itrie:
+    dependency: "direct main"
+    description:
+      name: itrie
+      sha256: "889184b5c40d2b23cd16cef32485d8ba5a56cbb363980438c508b2feb5dcf90e"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.0.2"
   js:
     dependency: transitive
     description:

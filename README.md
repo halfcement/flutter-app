@@ -36,6 +36,7 @@ flutter通用项目基础模板代码
 ### 工具类
 ### 用户登录
 ### 图形验证码 gocaptcha适配滑动验证
+### 红点系统(未读消息气泡)
 ### api接口管理 地址管理
 ## 注意事项:
 android和ios需要更新自己的applicationId和bundleId

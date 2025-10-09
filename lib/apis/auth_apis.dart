@@ -18,7 +18,7 @@ class AuthApi {
 
   AuthApi._internal();
   //获取图形验证码
-  static Future<SlideCaptchaModel> getCaptcha() async {
+  static Future<SlideCaptchaModel?> getCaptcha() async {
     var res = await DioPoolManager.request(
       ApiPath.appCaptchaPath,
       data: {
@@ -28,7 +28,7 @@ class AuthApi {
     if(res.success){
       return SlideCaptchaModel.fromJson(res.data);
     }else{
-      return SlideCaptchaModel();
+      return null;
     }
   }
   //校验图形验证码
