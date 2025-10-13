@@ -5,36 +5,46 @@ import 'package:itrie/itrie.dart';
 
 class RedDotController extends GetxController {
   //存储用的前缀树
-  final _iTrie = ITrie<int>.empty();
+  var iTrie = ITrie<int>.empty();
   //insert
   void insert(String key,int value) {
-    _iTrie.insert(key, value);
-    update();
+    if(get(key)+value>0) {
+      iTrie = iTrie.insert(key, value);
+      update();
+    }
   }
-  //insert
   //modify
   void modify(String key,int value) {
-    _iTrie.modify(key, (_) => value );
+    if(get(key) == 0) {
+      insert(key, value);
+      return;
+    }
+    iTrie = iTrie.modify(key, (v){
+      if(v+value<0){
+        return 0;
+      }else{
+        return v+value;
+      }
+    });
     update();
   }
   //remove
   void remove(String key) {
-    _iTrie.remove(key);
+    iTrie.remove(key);
     update();
   }
   //query
-  int? get(String key) {
-    return _iTrie.get(key);
-    update();
+  int get(String key) {
+    return iTrie.get(key)??0;
   }
   //insert many
   void insertMany(List<(String,int)> kv) {
-    _iTrie.insertMany(kv);
+    iTrie = iTrie.insertMany(kv);
     update();
   }
   //remove many
   void removeMany(List<String> keys) {
-    _iTrie.removeMany(keys);
+    iTrie = iTrie.removeMany(keys);
     update();
   }
 

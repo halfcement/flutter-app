@@ -1,8 +1,8 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gocaptcha/slide_captcha.dart';
 import 'package:normal_template/apis/auth_apis.dart';
+import 'package:normal_template/common_controller/red_dot_controller.dart';
 import 'package:normal_template/screens/root_screen/root_screen_controller.dart';
 import 'package:get/get.dart';
 
@@ -27,16 +27,16 @@ class _HomeScreenState extends State<HomeScreen> {
             Text("HOME SCREEN${rootScreenController.currentPageIndex}"),
             GestureDetector(
               onTap: () async {
-                  showCupertinoDialog(
-                    context: context,
-                    builder: (_) => SlideCaptcha(
-                      getCaptcha: AuthApi.getCaptcha,
-                      checkCaptcha: AuthApi.checkCaptcha,
-                      onSuccess: () async {
-                        Get.back();
-                      },
-                    ),
-                  );
+                showCupertinoDialog(
+                  context: context,
+                  builder: (_) => SlideCaptcha(
+                    getCaptcha: AuthApi.getCaptcha,
+                    checkCaptcha: AuthApi.checkCaptcha,
+                    onSuccess: () async {
+                      Get.back();
+                    },
+                  ),
+                );
               },
               child: Text("TEST Captcha"),
             ),

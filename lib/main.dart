@@ -6,6 +6,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 import 'package:localstorage/localstorage.dart';
+import 'package:normal_template/common_controller/red_dot_controller.dart';
 import 'package:normal_template/config/translations.dart';
 import 'package:normal_template/models/global_static_variable.dart';
 import 'package:normal_template/screens/auth_screens/login_screen/login_screen.dart';
@@ -17,6 +18,7 @@ import 'utils/utils.dart';
 
 //初始化配置
 Future<void> initConfig()async{
+  //日志工具
   FlutterError.onError = (error) async => Utils.logRecord(error);
   //缓存工具初始化
   await initLocalStorage();
@@ -28,6 +30,8 @@ Future<void> initConfig()async{
   Get.put(UserInfoController());
   //创建底部导航栏状态管理控制器
   Get.put(RootScreenController());
+  //红点系统控制器
+  Get.put(RedDotController());
 }
 
 void main() async {
