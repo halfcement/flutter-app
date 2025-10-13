@@ -5,6 +5,7 @@ import 'package:normal_template/apis/auth_apis.dart';
 import 'package:normal_template/common_controller/red_dot_controller.dart';
 import 'package:normal_template/screens/root_screen/root_screen_controller.dart';
 import 'package:get/get.dart';
+import 'package:normal_template/test_screen.dart';
 
 //首页
 class HomeScreen extends StatefulWidget {
@@ -25,21 +26,9 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text("HOME SCREEN${rootScreenController.currentPageIndex}"),
-            GestureDetector(
-              onTap: () async {
-                showCupertinoDialog(
-                  context: context,
-                  builder: (_) => SlideCaptcha(
-                    getCaptcha: AuthApi.getCaptcha,
-                    checkCaptcha: AuthApi.checkCaptcha,
-                    onSuccess: () async {
-                      Get.back();
-                    },
-                  ),
-                );
-              },
-              child: Text("TEST Captcha"),
-            ),
+            ElevatedButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (_)=>TestScreen()));
+            }, child: Text("测试页面"))
           ],
         ),
       ),

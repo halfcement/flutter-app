@@ -10,6 +10,7 @@ flutter通用项目基础模板代码
         - api_path.dart: 接口地址管理
         - api_response.dart：封装的接口返回对象
         - xxx_apis.dart: 对应模块的请求
+    - common_components/：公共组件
     - common_controller/：不依赖页面的状态管理
     - config/：配置项
         - dio_config/：dio配置
